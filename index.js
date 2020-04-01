@@ -1,7 +1,47 @@
 function toRoman(num) {
+    var simbol = [
+        [1000, 'M'],
+        [900, 'CM'],
+        [500, 'D'],
+        [400, 'CD'],
+        [100, 'C'],
+        [90, 'XC'],
+        [50, 'L'],
+        [40, 'XL'],
+        [10, 'X'],
+        [9, 'IX'],
+        [5, 'V'],
+        [4, 'IV'],
+        [1, 'I']
+    ], output = '', x = 0
+
+    // LOOPING 
+    // while(num>0){
+    //     if(num>=simbol[x][0]){
+    //         num-=simbol[x][0]
+    //         output+=simbol[x][1]
+    //     }
+    //     else{
+    //         x++
+    //     }
+    //     if(x==simbol.length) break
+    // }
+    // return output
+
+    //RECURSIVE
+    if (num == 0) return ""
+    else {
+        for (var i = 0; i < simbol.length; i++) {
+            while (num >= simbol[i][0]) {
+                output += simbol[i][1]
+                return output + toRoman(num - simbol[i][0])
+            }
+        }
+    }
 
 }
 
+// toRoman(13) + toRoman(3) + toRoman(2) +  toRoman(1) +  toRoman(0)
 // Drive code
 console.log("My totally sweet testing script for new roman\n");
 console.log("input | expected | actual");
