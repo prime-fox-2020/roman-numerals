@@ -1,5 +1,16 @@
 function toRoman(num) {
+    const dictNumber = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+    const dictRoman = ["M", "DM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
 
+    let output = ''
+
+    for(let i = 0; i < dictNumber.length; i++){
+      while(num - dictNumber[i] >= 0){
+        output += dictRoman[i]
+        num -= dictNumber[i]
+      }
+    }
+    return output
 }
 
 // Drive code
