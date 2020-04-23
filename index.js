@@ -1,4 +1,17 @@
 function toRoman(num) {
+  let angka = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+  let romawi = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+
+  if(num == 0) {
+    return ''
+  }
+
+  for(let i = 0; i < angka.length; i++) {
+    while(num >= angka[i]) {
+      num -= angka[i]
+      return romawi[i] + toRoman(num)
+    }
+  }
 
 }
 
